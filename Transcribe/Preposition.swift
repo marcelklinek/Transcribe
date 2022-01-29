@@ -1,4 +1,4 @@
-enum Preposition: String {
+enum Preposition: String, CaseIterable {
     
     case behem = "během"
     case bez = "bez"

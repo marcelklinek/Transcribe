@@ -4,8 +4,9 @@ public class Transcriber {
         let lowercaseString = input.lowercased()
         let words = Tokenizer.tokenizeAsWords(lowercaseString)
         let transcribedWords = words.map{ transcribeWord(String($0)) }
+        let prepositions = Preposition.allCases.map{ $0.rawValue }
         var joinedWords = transcribedWords[0..<transcribedWords.count - 1].reduce("", { accum, next in
-            if next == "na" {
+            if prepositions.contains(next) {
                 return accum + next + "="
             } else {
                 return accum + next + "+"
