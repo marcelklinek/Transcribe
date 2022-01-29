@@ -76,8 +76,10 @@ public class Transcriber {
             return Transcription.along.rawValue
         case "é":
             return Transcription.elong.rawValue
-        case "í":
+        case "í", "ý":
             return Transcription.ilong.rawValue
+        case "y":
+            return Transcription.ypsilon.rawValue
         case "ó":
             return Transcription.olong.rawValue
         case "ú", "ů":

@@ -1,8 +1,10 @@
+import Foundation
 public class Tokenizer {
 
-    static func tokenizeAsWords(_ input: String) -> [Substring] {
-        var str = String(input).trimmingCharacters(in: .punctuationCharacters)
-        return str.split(separator: " ")
+    static func tokenizeAsWords(_ input: String) -> [String] {
+        let words = input.split(separator: " ")
+        let result = words.map{ $0.trimmingCharacters(in: .punctuationCharacters) }
+        return result
     }
     
     static func tokenizeAsPairs(_ input: String, skipFirstLetter: Bool) -> [String] {

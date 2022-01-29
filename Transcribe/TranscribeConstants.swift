@@ -4,6 +4,7 @@ struct TranscribeConstants {
 
 enum Transcription: String {
     case chi = "x"
+    case ypsilon = "i"
     
     case along = "a:"
     case elong = "e:"
