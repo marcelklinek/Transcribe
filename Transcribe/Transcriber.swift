@@ -4,7 +4,14 @@ public class Transcriber {
         let lowercaseString = input.lowercased()
         let words = Tokenizer.tokenizeAsWords(lowercaseString)
         let transcribedWords = words.map{ transcribeWord(String($0)) }
-        let joinedWords = transcribedWords.joined(separator: "+")
+        var joinedWords = transcribedWords[0..<transcribedWords.count - 1].reduce("", { accum, next in
+            if next == "na" {
+                return accum + next + "="
+            } else {
+                return accum + next + "+"
+            }
+        })
+        joinedWords.append(transcribedWords.last!)
         let addStartEndSequences = "\(TranscribeConstants.start)\(joinedWords)\(TranscribeConstants.end)"
         return addStartEndSequences
     }

@@ -22,10 +22,6 @@ enum Transcription: String {
     
     case ecaron = "je"
     
-    case fullstop = "↓#"
-    case comma = "→#"
-    case questionmark = "↑#"
-    
     case io = "ijo"
     case ia = "ija"
     case iu = "iju"
