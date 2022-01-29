@@ -5,7 +5,7 @@ public class Transcriber {
         let words = Tokenizer.tokenizeAsWords(lowercaseString)
         let transcribedWords = words.map{ transcribeWord(String($0)) }
         let joinedWords = transcribedWords.joined(separator: "+")
-        let addStartEndSequences = "\(Transcription.start.rawValue)\(joinedWords)\(Transcription.end.rawValue)"
+        let addStartEndSequences = "\(TranscribeConstants.start)\(joinedWords)\(TranscribeConstants.end)"
         return addStartEndSequences
     }
     

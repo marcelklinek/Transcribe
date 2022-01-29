@@ -16,6 +16,10 @@
 		79C877CA27A3FDC700F247D0 /* Transcriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C877C927A3FDC700F247D0 /* Transcriber.swift */; };
 		79C877CB27A3FE3F00F247D0 /* Transcriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C877C927A3FDC700F247D0 /* Transcriber.swift */; };
 		79C877CD27A3FED100F247D0 /* TranscribeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C877CC27A3FED100F247D0 /* TranscribeConstants.swift */; };
+		79E4755C27A58C68009DA762 /* Preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4755B27A58C68009DA762 /* Preposition.swift */; };
+		79E4755E27A58CA7009DA762 /* Transcription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4755D27A58CA7009DA762 /* Transcription.swift */; };
+		79E4755F27A58D68009DA762 /* Transcription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4755D27A58CA7009DA762 /* Transcription.swift */; };
+		79E4756027A58D6B009DA762 /* Preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E4755B27A58C68009DA762 /* Preposition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +43,8 @@
 		79C877C727A3FD3600F247D0 /* TokenizerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenizerTests.swift; sourceTree = "<group>"; };
 		79C877C927A3FDC700F247D0 /* Transcriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcriber.swift; sourceTree = "<group>"; };
 		79C877CC27A3FED100F247D0 /* TranscribeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscribeConstants.swift; sourceTree = "<group>"; };
+		79E4755B27A58C68009DA762 /* Preposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preposition.swift; sourceTree = "<group>"; };
+		79E4755D27A58CA7009DA762 /* Transcription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,8 @@
 				79C877C427A3FB6C00F247D0 /* Tokenizer.swift */,
 				79C877C927A3FDC700F247D0 /* Transcriber.swift */,
 				79C877CC27A3FED100F247D0 /* TranscribeConstants.swift */,
+				79E4755B27A58C68009DA762 /* Preposition.swift */,
+				79E4755D27A58CA7009DA762 /* Transcription.swift */,
 			);
 			path = Transcribe;
 			sourceTree = "<group>";
@@ -187,6 +195,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C877B327A3D9EB00F247D0 /* main.swift in Sources */,
+				79E4755C27A58C68009DA762 /* Preposition.swift in Sources */,
+				79E4755E27A58CA7009DA762 /* Transcription.swift in Sources */,
 				79C877C527A3FB6C00F247D0 /* Tokenizer.swift in Sources */,
 				79C877CD27A3FED100F247D0 /* TranscribeConstants.swift in Sources */,
 				79C877CA27A3FDC700F247D0 /* Transcriber.swift in Sources */,
@@ -198,7 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79C877C827A3FD3600F247D0 /* TokenizerTests.swift in Sources */,
+				79E4756027A58D6B009DA762 /* Preposition.swift in Sources */,
 				79C877C027A3FAE000F247D0 /* TranscriberTests.swift in Sources */,
+				79E4755F27A58D68009DA762 /* Transcription.swift in Sources */,
 				7967289427A49B0A00210E71 /* TranscribeConstants.swift in Sources */,
 				79C877C627A3FC5500F247D0 /* Tokenizer.swift in Sources */,
 				79C877CB27A3FE3F00F247D0 /* Transcriber.swift in Sources */,
