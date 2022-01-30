@@ -50,6 +50,7 @@
 		79E4755D27A58CA7009DA762 /* Transcription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transcription.swift; sourceTree = "<group>"; };
 		79E4756127A6CED3009DA762 /* SyllabicTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyllabicTranscriber.swift; sourceTree = "<group>"; };
 		79E4756427A6EECB009DA762 /* InputCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCollector.swift; sourceTree = "<group>"; };
+		79E4756627A6F3E5009DA762 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		79C877A627A3D9EB00F247D0 = {
 			isa = PBXGroup;
 			children = (
+				79E4756627A6F3E5009DA762 /* README.md */,
 				79C877B127A3D9EB00F247D0 /* Transcribe */,
 				79C877BE27A3FAE000F247D0 /* TranscribeTests */,
 				79C877B027A3D9EB00F247D0 /* Products */,
