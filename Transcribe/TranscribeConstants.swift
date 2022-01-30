@@ -1,8 +1,12 @@
 struct TranscribeConstants {
-    static var start = "/#"
-    static var end = "#/"
+    static var terminalDelimiter = "#"
+    static var outerDelimiter = "+"
+    static var innerDelimiter = "="
     
-    static var fullstop = "↓#"
-    static var comma = "→#"
-    static var questionmark = "↑#"
+    static var absoluteStart = "/"
+    static var absoluteEnd = "/"
+    
+    static var rise = "↑"
+    static var fall = "↓"
+    static var continuation = "→"
 }

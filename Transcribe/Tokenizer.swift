@@ -1,6 +1,12 @@
 import Foundation
 public class Tokenizer {
 
+    static func tokenizeAsSentences(_ input: String) -> [String] {
+        let sentences = input.split(omittingEmptySubsequences: true, whereSeparator: { ["?", "!", "."].contains($0) })
+        let result = sentences.map{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+        return result
+    }
+    
     static func tokenizeAsWords(_ input: String) -> [String] {
         let words = input.split(separator: " ")
         let result = words.map{ $0.trimmingCharacters(in: .punctuationCharacters) }
