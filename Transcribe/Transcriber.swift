@@ -2,7 +2,13 @@ public class Transcriber {
     
     func transcribe(input: String) -> String {
         let lowercaseString = input.lowercased()
-        let sentences = Tokenizer.tokenizeAsSentences(lowercaseString)
+        let paragraph = transcribeParagraph(lowercaseString)
+        let addAbsoluteDelimiters = "\(TranscribeConstants.absoluteStart)\(paragraph)\(TranscribeConstants.absoluteEnd)"
+        return addAbsoluteDelimiters
+    }
+    
+    private func transcribeParagraph(_ input: String) -> String {
+        let sentences = Tokenizer.tokenizeAsSentences(input)
         let transcribedSentences = sentences.map{
             transcribeSentence($0)
         }
@@ -10,8 +16,7 @@ public class Transcriber {
             .reduce(TranscribeConstants.terminalDelimiter, { accum, next in
                 return accum + next + TranscribeConstants.terminalDelimiter
             })
-        let addStartEndSequences = "\(TranscribeConstants.absoluteStart)\(joinedSentences)\(TranscribeConstants.absoluteEnd)"
-        return addStartEndSequences
+        return joinedSentences
     }
     
     private func transcribeSentence(_ input: String) -> String {
