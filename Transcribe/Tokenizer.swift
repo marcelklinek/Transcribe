@@ -1,19 +1,20 @@
 import Foundation
+
 public class Tokenizer {
 
-    static func tokenizeAsSentences(_ input: String) -> [String] {
+    static func asSentences(_ input: String) -> [String] {
         let sentences = input.split(omittingEmptySubsequences: true, whereSeparator: { ["?", "!", "."].contains($0) })
         let result = sentences.map{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
         return result
     }
     
-    static func tokenizeAsWords(_ input: String) -> [String] {
+    static func asWords(_ input: String) -> [String] {
         let words = input.split(separator: " ")
         let result = words.map{ $0.trimmingCharacters(in: .punctuationCharacters) }
         return result
     }
     
-    static func tokenizeAsPairs(_ input: String, skipFirstLetter: Bool) -> [String] {
+    static func asPairs(_ input: String, skipFirstLetter: Bool) -> [String] {
         var str = String(input)
         if skipFirstLetter {
             let first = str.removeFirst()
@@ -25,7 +26,7 @@ public class Tokenizer {
         return str.components(withMaxLength: 2)
     }
     
-    static func tokenizeAsChars(_ input: String) -> [Character] {
+    static func asChars(_ input: String) -> [Character] {
         return Array(input)
     }
 }
