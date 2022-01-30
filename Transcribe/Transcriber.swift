@@ -1,5 +1,7 @@
 public class Transcriber {
     
+    private let prepositions = Preposition.allCases.map{ $0.rawValue }
+    
     func transcribe(input: String) -> String {
         let lowercaseString = input.lowercased()
         let paragraph = transcribeParagraph(lowercaseString)
@@ -22,16 +24,25 @@ public class Transcriber {
     private func transcribeSentence(_ input: String) -> String {
         let words = Tokenizer.tokenizeAsWords(input)
         let transcribedWords = words.map{ transcribeWord(String($0)) }
-        let prepositions = Preposition.allCases.map{ $0.rawValue }
-        var joinedWords = transcribedWords[0..<transcribedWords.count - 1].reduce("", { accum, next in
-            if prepositions.contains(next) {
-                return accum + next + "="
-            } else {
-                return accum + next + "+"
-            }
-        })
+        return joinWords(transcribedWords)
+    }
+    
+    private func joinWords(_ transcribedWords: [String]) -> String {
+        var joinedWords = transcribedWords[0..<transcribedWords.count - 1]
+            .reduce("", { accum, nextWord in
+                if wordIsPreposition(nextWord) {
+                    return accum + nextWord + "="
+                } else {
+                    return accum + nextWord + "+"
+                }
+            })
+        // last word in sentence ends with terminal delimiter, not outer/inner
         joinedWords.append(transcribedWords.last!)
         return joinedWords
+    }
+    
+    private func wordIsPreposition(_ word: String) -> Bool {
+        return prepositions.contains(word)
     }
     
     private func transcribeWord(_ input: String) -> String {
