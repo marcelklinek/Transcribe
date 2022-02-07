@@ -125,4 +125,9 @@ class WordTranscriberTests: XCTestCase {
         let transcription = transcriber.transcribe("Fiurášek")
         XCTAssertEqual(transcription, "fijura:šek")
     }
+    
+    func testTransribePrefix() throws {
+        let transcription = transcriber.transcribe("vybrat")
+        XCTAssertEqual(transcription, "vi=brat")
+    }
 }
