@@ -1,11 +1,16 @@
 public class Transcriber {
     
-    private let prepositions = Preposition.allCases.map{ $0.rawValue }
+    private let prepositions: [String]
+    private let wordTranscriber: WordTranscriber
+    
+    init() {
+        self.prepositions = Preposition.allCases.map{ $0.rawValue }
+        self.wordTranscriber = WordTranscriber()
+    }
     
     func transcribe(input: String) -> String {
-        let lowercaseString = input.lowercased()
-        let paragraph = transcribeParagraph(lowercaseString)
-        let addAbsoluteDelimiters = "\(TranscribeConstants.absoluteStart)\(paragraph)\(TranscribeConstants.absoluteEnd)"
+        let paragraph = transcribeParagraph(input)
+        let addAbsoluteDelimiters = "\(Delimiters.absoluteStart)\(paragraph)\(Delimiters.absoluteEnd)"
         return addAbsoluteDelimiters
     }
     
@@ -15,15 +20,15 @@ public class Transcriber {
             transcribeSentence($0)
         }
         let joinedSentences = transcribedSentences[0..<transcribedSentences.count]
-            .reduce(TranscribeConstants.terminalDelimiter, { accum, next in
-                return accum + next + TranscribeConstants.terminalDelimiter
+            .reduce(Delimiters.terminalDelimiter, { accum, next in
+                return accum + next + Intonemes.fall +  Delimiters.terminalDelimiter
             })
         return joinedSentences
     }
     
     private func transcribeSentence(_ input: String) -> String {
         let words = Tokenizer.asWords(input)
-        let transcribedWords = words.map{ transcribeWord(String($0)) }
+        let transcribedWords = words.map{ wordTranscriber.transcribe(String($0)) }
         return joinWords(transcribedWords)
     }
     
@@ -44,24 +49,5 @@ public class Transcriber {
     private func wordIsPreposition(_ word: String) -> Bool {
         return prepositions.contains(word)
     }
-    
-    private func transcribeWord(_ input: String) -> String {
-        let oddPairs = Tokenizer.asPairs(input, skipFirstLetter: false)
-        let intermediateResult = oddPairs.map{ SyllabicTranscriber.pairToPair(input: $0) }
-        
-        let evenPairs = Tokenizer.asPairs(intermediateResult.joined(), skipFirstLetter: true)
-        let intermediateResult2 = evenPairs.map{ SyllabicTranscriber.pairToPair(input: $0) }
-        
-        let oddPairsToOne = Tokenizer.asPairs(intermediateResult2.joined(), skipFirstLetter: false)
-        let intermediateResult3 = oddPairsToOne.map{ SyllabicTranscriber.pairToOne(input: $0) }
-        
-        let evenPairsToOne = Tokenizer.asPairs(intermediateResult3.joined(), skipFirstLetter: true)
-        let intermediateResult4 = evenPairsToOne.map{ SyllabicTranscriber.pairToOne(input: $0) }
-        
-        let characters = Tokenizer.asChars(intermediateResult4.joined())
-        let result = characters.map{ SyllabicTranscriber.char(input: $0) }
-        
-        return result.joined()
-    }
-    
+
 }
