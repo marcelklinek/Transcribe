@@ -3,7 +3,7 @@ import Foundation
 public class Tokenizer {
 
     static func asSentences(_ input: String) -> [String] {
-        let sentences = input.split(omittingEmptySubsequences: true, whereSeparator: { ["?", "!", "."].contains($0) })
+        let sentences = input.split(omittingEmptySubsequences: true, whereSeparator: { ["?", "!", ".", ";"].contains($0) })
         let result = sentences.map{ $0.trimmingCharacters(in: .whitespacesAndNewlines) }
         return result
     }
