@@ -12,121 +12,121 @@ class WordTranscriberTests: XCTestCase {
         transcriber = nil
     }
     
-    func testTransribeAlong() throws {
+    func testTranscribeAlong() throws {
         let transcription = transcriber.transcribe("pán")
         XCTAssertEqual(transcription, "pa:n")
     }
     
-    func testTransribeElong() throws {
+    func testTranscribeElong() throws {
         let transcription = transcriber.transcribe("fén")
         XCTAssertEqual(transcription, "fe:n")
     }
     
-    func testTransribeIlong() throws {
+    func testTranscribeIlong() throws {
         let transcription = transcriber.transcribe("mír")
         XCTAssertEqual(transcription, "mi:r")
     }
-    func testTransribeOlong() throws {
+    func testTranscribeOlong() throws {
         let transcription = transcriber.transcribe("gól")
         XCTAssertEqual(transcription, "go:l")
     }
     
-    func testTransribeUlong() throws {
+    func testTranscribeUlong() throws {
         let transcription = transcriber.transcribe("úbk")
         XCTAssertEqual(transcription, "u:bk")
     }
     
-    func testTransribeUring() throws {
+    func testTranscribeUring() throws {
         let transcription = transcriber.transcribe("důl")
         XCTAssertEqual(transcription, "du:l")
     }
     
-    func testTransribeEcaron() throws {
+    func testTranscribeEcaron() throws {
         let transcription = transcriber.transcribe("květ")
         XCTAssertEqual(transcription, "kvjet")
     }
     
-    func testTransribeDecaron() throws {
+    func testTranscribeDecaron() throws {
         let transcription = transcriber.transcribe("děd")
         XCTAssertEqual(transcription, "ďed")
     }
     
-    func testTransribeDecaronCapital() throws {
+    func testTranscribeDecaronCapital() throws {
         let transcription = transcriber.transcribe("Vševěd")
         XCTAssertEqual(transcription, "vševjed")
     }
     
-    func testTransribeTecaron() throws {
+    func testTranscribeTecaron() throws {
         let transcription = transcriber.transcribe("kutě")
         XCTAssertEqual(transcription, "kuťe")
     }
     
-    func testTransribeNecaron() throws {
+    func testTranscribeNecaron() throws {
         let transcription = transcriber.transcribe("něco")
         XCTAssertEqual(transcription, "ňeco")
     }
     
-    func testTransribeDi() throws {
+    func testTranscribeDi() throws {
         let transcription = transcriber.transcribe("div")
         XCTAssertEqual(transcription, "ďiv")
     }
     
-    func testTransribeDiLong() throws {
+    func testTranscribeDiLong() throws {
         let transcription = transcriber.transcribe("dílo")
         XCTAssertEqual(transcription, "ďi:lo")
     }
     
-    func testTransribeTi() throws {
+    func testTranscribeTi() throws {
         let transcription = transcriber.transcribe("potit")
         XCTAssertEqual(transcription, "poťit")
     }
     
-    func testTransribeTiLong() throws {
+    func testTranscribeTiLong() throws {
         let transcription = transcriber.transcribe("stín")
         XCTAssertEqual(transcription, "sťi:n")
     }
     
-    func testTransribeNi() throws {
+    func testTranscribeNi() throws {
         let transcription = transcriber.transcribe("nic")
         XCTAssertEqual(transcription, "ňic")
     }
     
-    func testTransribeNiLong() throws {
+    func testTranscribeNiLong() throws {
         let transcription = transcriber.transcribe("poník")
         XCTAssertEqual(transcription, "poňi:k")
     }
     
-    func testTransribeDiAtOddPosition() throws {
+    func testTranscribeDiAtOddPosition() throws {
         let transcription = transcriber.transcribe("plodí")
         XCTAssertEqual(transcription, "ploďi:")
     }
     
-    func testTransribeCh() throws {
+    func testTranscribeCh() throws {
         let transcription = transcriber.transcribe("trochu")
         XCTAssertEqual(transcription, "troxu")
     }
     
-    func testTransribeIa() throws {
+    func testTranscribeIa() throws {
         let transcription = transcriber.transcribe("rial")
         XCTAssertEqual(transcription, "rijal")
     }
 
-    func testTransribeIe() throws {
+    func testTranscribeIe() throws {
         let transcription = transcriber.transcribe("Marie")
         XCTAssertEqual(transcription, "marije")
     }
     
-    func testTransribeIo() throws {
+    func testTranscribeIo() throws {
         let transcription = transcriber.transcribe("kiosk")
         XCTAssertEqual(transcription, "kijosk")
     }
     
-    func testTransribeIu() throws {
+    func testTranscribeIu() throws {
         let transcription = transcriber.transcribe("Fiurášek")
         XCTAssertEqual(transcription, "fijura:šek")
     }
     
-    func testTransribePrefix() throws {
+    func testTranscribePrefix() throws {
         let transcription = transcriber.transcribe("vybrat")
         XCTAssertEqual(transcription, "vi=brat")
     }
